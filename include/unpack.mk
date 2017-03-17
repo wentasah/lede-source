@@ -21,15 +21,15 @@ ifeq ($(strip $(UNPACK_CMD)),)
 
     ifeq ($(filter gz tgz,$(EXT)),$(EXT))
       EXT:=$(call ext,$(PKG_SOURCE:.$(EXT)=))
-      DECOMPRESS_CMD:=gzip -dc $(DL_DIR)/$(PKG_SOURCE) |
+      DECOMPRESS_CMD=gzip -dc $(DL_DIR)/$(PKG_SOURCE) |
     endif
     ifeq ($(filter bzip2 bz2 bz tbz2 tbz,$(EXT)),$(EXT))
       EXT:=$(call ext,$(PKG_SOURCE:.$(EXT)=))
-      DECOMPRESS_CMD:=bzcat $(DL_DIR)/$(PKG_SOURCE) |
+      DECOMPRESS_CMD=bzcat $(DL_DIR)/$(PKG_SOURCE) |
     endif
     ifeq ($(filter xz txz,$(EXT)),$(EXT))
       EXT:=$(call ext,$(PKG_SOURCE:.$(EXT)=))
-      DECOMPRESS_CMD:=xzcat $(DL_DIR)/$(PKG_SOURCE) |
+      DECOMPRESS_CMD=xzcat $(DL_DIR)/$(PKG_SOURCE) |
     endif
     ifeq ($(filter tgz tbz tbz2 txz,$(EXT1)),$(EXT1))
       EXT:=tar
